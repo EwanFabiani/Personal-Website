@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@function multiple-box-shadow ($n) {
+    $value: '#{random()*100}vw #{random()*100}vh #FFF';
+    @for $i from 2 through $n {
+        $value: '#{$value} , #{random()*100}vw #{random()*100}vh #FFF';
+    }
+    @return unquote($value);
+}
+
+$shadows-small: multiple-box-shadow(700);
+$shadows-medium: multiple-box-shadow(200);
+$shadows-big: multiple-box-shadow(100);
+
+.start {
+    background: radial-gradient(ellipse at bottom, rgba(27, 39, 53, 1) 25%, rgba(9, 10, 15, 1) 100%);
+    position: absolute;
+    background-color: rgb(5, 0, 25);
+    margin: -8px;
+    width: 100%;
+    height: 100%;    
+}
+
+.smallstars {
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    box-shadow: $shadows-small;
+    animation: animateStars 20s linear infinite;
+    border-radius: 2px;
+
+    &:after{
+        content: " ";
+        position: absolute;
+        top: 100vh;
+        width: 1px;
+        height: 1px;
+        background: transparent;
+        box-shadow: $shadows-small;
+    }
+}
+
+.mediumstars {
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: $shadows-medium;
+    animation: animateStars 40s linear infinite;
+
+    &:after{
+        content: " ";
+        position: absolute;
+        top: 100vh;
+        width: 2px;
+        height: 2px;
+        background: transparent;
+        box-shadow: $shadows-medium;
+    }
+}
+
+.bigstars {
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    box-shadow: $shadows-big;
+    animation: animateStars 60s linear infinite;
+
+    &:after{
+        content: " ";
+        position: absolute;
+        top: 100vh;
+        width: 3px;
+        height: 3px;
+        background: transparent;
+        box-shadow: $shadows-big;
+    }
+}
+
+@keyframes animateStars {
+    from {
+        transform: translateY(0px);
+    }	
+    to {
+        transform: translateY(-100vh)
+    }
+}
+
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #FFF;
+    text-shadow: 0 0 10px #000;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 1;
+}
+
+.menu {
+    position: fixed;
+    top: 0px;
+    right: 20px;
+    padding: 10px;
+    margin: 5px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.menuitem a{
+    color: white;
+    font-size: 24px;
+    top: 0;
+    margin: auto;
+    position: relative;
+    padding: 6px;
+    margin: 14px;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    display: inline-block;
+    transition: transform 250ms ease-in-out;
+}
+
+.menuitem:hover a {
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(90deg, rgba(0, 0, 255, 0) 0%, rgba(95, 145, 255, 1) 100%);
+    border-image-slice: 1;
+    transform-origin: 0% 50%;
+    cursor: pointer;
+}
