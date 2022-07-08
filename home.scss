@@ -8,6 +8,12 @@
     @return unquote($value);
 }
 
+:root {
+    --small-shoadow: $shadows-small;
+    --medium-shoadow: $shadows-medium;
+    --big-shoadow: $shadows-big;
+}
+
 $shadows-small: multiple-box-shadow(700);
 $shadows-medium: multiple-box-shadow(200);
 $shadows-big: multiple-box-shadow(100);
