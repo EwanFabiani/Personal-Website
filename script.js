@@ -58,8 +58,6 @@ window.addEventListener('resize', function(event){
 
 function adjustStars(string, amount) {
     var newString = string;
-    console.log("OLD: " + string.length);
-    console.log("NEW: " + amount);
     var stars = string.split(',');
     var starsOldAmount = stars.length;
     if (starsOldAmount > amount) {
@@ -67,14 +65,14 @@ function adjustStars(string, amount) {
             stars.pop();
         }
         newString = stars.join(',');
-        console.log("TEST1");
     } else if (starsOldAmount < amount) {
         for (var i = 0; i < amount - starsOldAmount; i++) {
             newString += ', '  + Math.random()*100 + 'vw '+ Math.random()*200+ 'vh #FFF';
         }
-        console.log("TEST");
+        if (string.length===0) {newString = newString.substring(2);}
+    } else {
+
     }
-    console.log("RESULT: " + newString.le);
     return newString;
 }
 
@@ -83,6 +81,5 @@ function createStars(amount){
     for(var i = 0; i < amount; i++){
         stars += ', '  + Math.random()*100 + 'vw '+ Math.random()*200+ 'vh #FFF';
     }
-    console.log(stars);
     return stars;
 }
