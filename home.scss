@@ -1,23 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-@function multiple-box-shadow ($n) {
-    $value: '#{random()*100}vw #{random()*100}vh #FFF';
-    @for $i from 2 through $n {
-        $value: '#{$value} , #{random()*100}vw #{random()*100}vh #FFF';
-    }
-    @return unquote($value);
-}
-
-:root {
-    --small-shoadow: $shadows-small;
-    --medium-shoadow: $shadows-medium;
-    --big-shoadow: $shadows-big;
-}
-
-$shadows-small: multiple-box-shadow(700);
-$shadows-medium: multiple-box-shadow(200);
-$shadows-big: multiple-box-shadow(100);
-
 .start {
     background: radial-gradient(ellipse at bottom, rgba(27, 39, 53, 1) 25%, rgba(9, 10, 15, 1) 100%);
     position: absolute;
@@ -31,7 +13,6 @@ $shadows-big: multiple-box-shadow(100);
     width: 1px;
     height: 1px;
     background: transparent;
-    box-shadow: $shadows-small;
     animation: animateStars 20s linear infinite;
     border-radius: 2px;
 
@@ -42,7 +23,6 @@ $shadows-big: multiple-box-shadow(100);
         width: 1px;
         height: 1px;
         background: transparent;
-        box-shadow: $shadows-small;
     }
 }
 
@@ -50,7 +30,6 @@ $shadows-big: multiple-box-shadow(100);
     width: 2px;
     height: 2px;
     background: transparent;
-    box-shadow: $shadows-medium;
     animation: animateStars 40s linear infinite;
 
     &:after{
@@ -60,7 +39,6 @@ $shadows-big: multiple-box-shadow(100);
         width: 2px;
         height: 2px;
         background: transparent;
-        box-shadow: $shadows-medium;
     }
 }
 
@@ -68,7 +46,6 @@ $shadows-big: multiple-box-shadow(100);
     width: 3px;
     height: 3px;
     background: transparent;
-    box-shadow: $shadows-big;
     animation: animateStars 60s linear infinite;
 
     &:after{
@@ -78,7 +55,6 @@ $shadows-big: multiple-box-shadow(100);
         width: 3px;
         height: 3px;
         background: transparent;
-        box-shadow: $shadows-big;
     }
 }
 
