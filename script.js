@@ -11,15 +11,12 @@ window.addEventListener('DOMContentLoaded', function(event) {
     var title = document.getElementsByClassName('title')[0];
     title.innerHTML = newWidth + ' ' + newHeight;
 
-    //set the smallstars div box shadow
     var smallStars = document.getElementsByClassName('smallstars')[0];
     smallStars.style.boxShadow = createStars(smallAmount);
 
-    //set the mediumstars div box shadow
     var mediumStars = document.getElementsByClassName('mediumstars')[0];
     mediumStars.style.boxShadow = createStars(mediumAmount);
 
-    //set the bigstars div box shadow
     var bigStars = document.getElementsByClassName('bigstars')[0];
     bigStars.style.boxShadow = createStars(bigAmount);
 });
