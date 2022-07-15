@@ -78,7 +78,7 @@ function adjustStars(string, amount, index) {
 
 function createStars(amount){
     var stars = Math.random()*100 + 'vw '+ Math.random()*200 + 'vh #FFF';
-    for(var i = 0; i < amount; i++){
+    for(var i = 0; i < amount-1; i++){
         stars += ', '  + Math.random()*100 + 'vw '+ Math.random()*200 + 'vh #FFF';
     }
     return stars;
