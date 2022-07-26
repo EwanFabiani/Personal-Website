@@ -2,14 +2,11 @@ window.addEventListener('DOMContentLoaded', function(event) {
     var newWidth = window.innerWidth*2;
     var newHeight = window.innerHeight*2;
 
-    var totalPixels = newHeight*newWidth;
+    var totalPixels = (newHeight*newWidth);
     
-    var smallAmount = Math.round(totalPixels/3000);
-    var mediumAmount = Math.round(totalPixels/10000);
-    var bigAmount = Math.round(totalPixels/20000);
-
-    var title = document.getElementsByClassName('title')[0];
-    title.innerHTML = newWidth + ' ' + newHeight;
+    var smallAmount = Math.round(totalPixels/6000.0);
+    var mediumAmount = Math.round(totalPixels/20000.0);
+    var bigAmount = Math.round(totalPixels/40000.0);
 
     var smallStars = document.getElementsByClassName('smallstars')[0];
     smallStars.style.boxShadow = createStars(smallAmount);
@@ -27,12 +24,9 @@ window.addEventListener('resize', function(event){
 
     var totalPixels = newHeight*newWidth;
     
-    var smallAmount = Math.round(totalPixels/3000);
-    var mediumAmount = Math.round(totalPixels/10000);
-    var bigAmount = Math.round(totalPixels/20000);
-
-    var title = document.getElementsByClassName('title')[0];
-    title.innerHTML = newWidth + ' ' + newHeight;
+    var smallAmount = Math.round(totalPixels/6000);
+    var mediumAmount = Math.round(totalPixels/20000);
+    var bigAmount = Math.round(totalPixels/40000);
 
     var smallStars = document.getElementsByClassName('smallstars')[0];
     var mediumStars = document.getElementsByClassName('mediumstars')[0];
@@ -42,44 +36,34 @@ window.addEventListener('resize', function(event){
     var mediumStarsString = mediumStars.style.boxShadow;
     var bigStarsString = bigStars.style.boxShadow;
 
-    var smallStarsArray = smallStarsString.split(', ');
-    var mediumStarsArray = mediumStarsString.split(', ');
-    var bigStarsArray = bigStarsString.split(', ');
-
     smallStars.style.boxShadow = adjustStars(smallStarsString, smallAmount, 1);
     mediumStars.style.boxShadow = adjustStars(mediumStarsString, mediumAmount, 2);
     bigStars.style.boxShadow = adjustStars(bigStarsString, bigAmount, 3);
-      
-
 });
 
 function adjustStars(string, amount, index) {
+    var shouldSubstring = (string.length===0);
     var newString = string;
-    var stars = string.split(', ');
+    var stars = string.split(', r');
     var starsOldAmount = stars.length;
-    console.log("StarsOldAmount: " + starsOldAmount);
-    console.log("Amount: " + amount);
-    console.log("Index: " + index + "\n");
     if (starsOldAmount > amount) {
         for (var i = 0; i < starsOldAmount - amount; i++) {
             stars.pop();
         }
-        newString = stars.join(', ');
+        newString = stars.join(', r');
     } else if (starsOldAmount < amount) {
         for (var i = 0; i < amount - starsOldAmount; i++) {
-            newString += ', '  + Math.random()*100 + 'vw '+ Math.random()*200 + 'vh #FFF';
+            newString += ", rgb(255, 255, 255) " + Math.random()*100 + 'vw '+ Math.random()*200 + 'vh';
         }
-        if (string.length===0) {newString = newString.substring(2);}
-    } else {
-
-    }
+        if (shouldSubstring) {newString = newString.substring(2);}
+    } else {}
     return newString;
 }
 
 function createStars(amount){
-    var stars = Math.random()*100 + 'vw '+ Math.random()*200 + 'vh #FFF';
+    var stars = "rgb(255, 255, 255) " + Math.random()*100 + 'vw '+ Math.random()*200 + 'vh';
     for(var i = 0; i < amount; i++){
-        stars += ', '  + Math.random()*100 + 'vw '+ Math.random()*200 + 'vh #FFF';
+        stars += ", rgb(255, 255, 255) " + Math.random()*100 + 'vw '+ Math.random()*200 + 'vh';
     }
     return stars;
 }
