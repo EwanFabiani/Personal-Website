@@ -64,6 +64,7 @@ function createStars(amount){
     var stars = "rgb(255, 255, 255) " + Math.random()*100 + 'vw '+ Math.random()*200 + 'vh';
     for(var i = 0; i < amount; i++){
         stars += ", rgb(255, 255, 255) " + Math.random()*100 + 'vw '+ Math.random()*200 + 'vh';
+
     }
     return stars;
 }

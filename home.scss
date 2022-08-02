@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 .start {
     background: radial-gradient(ellipse at bottom, rgba(27, 39, 53, 1) 25%, rgba(9, 10, 15, 1) 100%);
     position: absolute;
@@ -70,14 +68,14 @@
 .title {
     position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2.5rem;
+    transform: translateY(-50%);
+    left: 5vw;
+    font-size: 5rem;
     font-weight: bold;
     color: #FFF;
-    text-shadow: 0 0 10px #000;
-    text-align: center;
-    text-transform: uppercase;
+    text-shadow: 0 0 1px #fff, 0 0 2px #fff, 0 0 30px;
+    text-align: left;
+    /*text-transform: uppercase;*/
     letter-spacing: 2px;
     z-index: 1;
 }
@@ -85,13 +83,19 @@
 .menu {
     position: fixed;
     top: 0px;
-    right: 20px;
     padding: 10px;
     margin: 5px;
     display: flex;
     text-align: center;
     justify-content: center;
     z-index: 10;
+    right: 20px;
+}
+
+@media screen and (max-width:520px) {
+    .menuitem {
+        display: none;
+    }
 }
 
 .menuitem a{
@@ -103,15 +107,30 @@
     padding: 6px;
     margin: 14px;
     text-decoration: none;
-    font-family: 'Roboto', sans-serif;
     display: inline-block;
     transition: transform 250ms ease-in-out;
+    text-shadow: 0 0 0px #fff, 0 0 0px #fff, 0 0 30px;
 }
 
 .menuitem:hover a {
-    border-bottom: 3px solid transparent;
-    border-image: linear-gradient(90deg, rgba(0, 0, 255, 0) 0%, rgba(95, 145, 255, 1) 100%);
-    border-image-slice: 1;
-    transform-origin: 0% 50%;
+    border-bottom: 3px solid rgb(0, 38, 255);
+    
+    animation: menuItemHover 250ms ease-in-out forwards;
     cursor: pointer;
+}
+
+@keyframes menuItemHover{
+    0% {
+        
+    }
+    50% {
+        top: 4px;
+    }
+    100% {
+        top: 2px;
+    }
+}
+
+body {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
